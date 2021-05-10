@@ -1,0 +1,32 @@
+{
+  "name": "Lev's Daily Change Highlighter",
+  "description": "Highlights 'Kangaroo' changes for a yahoo finance portfolio",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/stock-market.png",
+      "32": "/images/stock-market.png",
+      "48": "/images/stock-market.png",
+      "128": "/images/stock-market.png"
+    }
+  },
+  "icons": {
+    "16": "/images/stock-market.png",
+    "32": "/images/stock-market.png",
+    "48": "/images/stock-market.png",
+    "128": "/images/stock-market.png"
+  },
+  "content_scripts": [
+    {
+        "matches": ["https://finance.yahoo.com/portfolio/*"],
+        "js": ["script.js"],
+        "run_at": "document_end"
+    }
+  ]
+}
